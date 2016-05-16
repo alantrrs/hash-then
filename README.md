@@ -26,7 +26,8 @@ npm install --save hash-then
 
 ### From CLI
 ```bash
-$ node cli.js test/fixtures/my-file.txt 
+$ npm install -g hash-then
+$ hash-then test/fixtures/my-file.txt 
 > test/fixtures/my-file.txt   8b4781a921e9f1a1cb5aa3063ca8592cac3ee39276d8e8212b336b6e73999798
 ```
 
