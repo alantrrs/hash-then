@@ -3,7 +3,6 @@ var fs = require('fs')
 var checksum = require('checksum')
 var tar = require('tar-fs')
 var shortid = require('shortid')
-var debug = require('debug')('hash-then')
 
 function tarCompress (dirPath) {
   return new Promise(function (resolve, reject) {
@@ -11,11 +10,13 @@ function tarCompress (dirPath) {
     var out = fs.createWriteStream(tmpFile)
     tar.pack(dirPath, {
       map: function (header) {
-        if (header.name === '.') header.mtime = new Date(1240815600000)
+        if (process.env.DEBUG) console.log('HEADER before:', header)
+        header.mtime = new Date(1240815600000)
         if (header.type === 'directory') header.mode = 16893
         if (header.type === 'file') header.mode = 33204
         header.gid = 1000
         header.uid = 1000
+        if (process.env.DEBUG) console.log('HEADER after:', header)
         return header
       }
     }).pipe(out).on('finish', function () {
@@ -32,9 +33,7 @@ function hashDir (dir) {
     return hashFile(tarPath)
     // Cleanup and return the hash
     .then(function (hash) {
-      debug('temp tar:', tarPath)
       fs.unlinkSync(tarPath)
-      debug('hash:', hash)
       return hash
     })
   })
@@ -48,7 +47,6 @@ function hashFile (file) {
         if (err.code === 'ENOENT') return resolve(null)
         return reject(err)
       }
-      debug('hash:', sum)
       resolve(sum)
     })
   })
