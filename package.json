@@ -1,0 +1,38 @@
+{
+  "name": "hash-then",
+  "version": "1.0.0",
+  "description": "Hash files and directories",
+  "main": "index.js",
+  "dependencies": {
+    "checksum": "^0.1.1",
+    "debug": "^2.2.0",
+    "shortid": "^2.2.6",
+    "tar-fs": "^1.12.0"
+  },
+  "devDependencies": {
+    "istanbul": "^0.4.3",
+    "mocha": "^2.4.5",
+    "standard": "^7.0.1"
+  },
+  "scripts": {
+    "test": "mocha test/index.js",
+    "test-cov": "istanbul cover _mocha -- -u exports -R spec test/index.js",
+    "lint": "standard"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/alantrrs/hash-then.git"
+  },
+  "keywords": [
+    "hash",
+    "checksum",
+    "sha",
+    "directory"
+  ],
+  "author": "@alantrrs",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/alantrrs/hash-then/issues"
+  },
+  "homepage": "https://github.com/alantrrs/hash-then#readme"
+}
