@@ -14,6 +14,9 @@
     "mocha": "^2.4.5",
     "standard": "^7.0.1"
   },
+  "bin": {
+    "hash-then": "./cli.js"
+  },
   "scripts": {
     "test": "mocha test/index.js",
     "test-cov": "istanbul cover _mocha -- -u exports -R spec test/index.js",
