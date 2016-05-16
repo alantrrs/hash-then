@@ -3,7 +3,7 @@
 var hash = require('.')
 
 if (process.argv.length === 3)  {
-  return hash(process.argv[2]).then(function (hash) {
+  hash(process.argv[2]).then(function (hash) {
     console.log(`${process.argv[2]}\t${hash}`)
   })
 } else {
