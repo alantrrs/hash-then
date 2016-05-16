@@ -1,5 +1,5 @@
 
-# hash-then
+# hash-then [![CircleCI](https://circleci.com/gh/alantrrs/hash-then.svg?style=svg)](https://circleci.com/gh/alantrrs/hash-then)
 
 _Hash files and directories_
 
