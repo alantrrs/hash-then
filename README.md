@@ -7,8 +7,7 @@ _Hash files and directories_
 - Given a non-existent path it will return ``null``
 - Given a file path it will return sha256 of the file
 - Given a path to a directory, it will create a temporary tar
-of the directory with harcoded values for ``mtime`` 
-(only for parent directory), ``mode``, ``gid`` and ``uid`` and return
+of the directory with harcoded values for ``mtime``, ``mode``, ``gid`` and ``uid`` and return
 the sha256 for that tar.
 
 ## Install

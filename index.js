@@ -11,7 +11,7 @@ function tarCompress (dirPath) {
     tar.pack(dirPath, {
       map: function (header) {
         if (process.env.DEBUG) console.log('HEADER before:', header)
-        if (header.name === '.') header.mtime = new Date(1240815600000)
+        header.mtime = new Date(1240815600000)
         if (header.type === 'directory') header.mode = 16893
         if (header.type === 'file') header.mode = 33204
         header.gid = 1000
