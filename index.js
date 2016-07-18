@@ -3,6 +3,7 @@ var fs = require('fs')
 var checksum = require('checksum')
 var tar = require('tar-fs')
 var shortid = require('shortid')
+var path = require('path')
 
 function tarCompress (dirPath) {
   return new Promise(function (resolve, reject) {
@@ -27,13 +28,17 @@ function tarCompress (dirPath) {
   })
 }
 
-function hashDir (dir) {
+function hashDir (dir, output) {
   // Tar directory and hash tar file
   return tarCompress(dir).then(function (tarPath) {
     return hashFile(tarPath)
     // Cleanup and return the hash
     .then(function (hash) {
-      fs.unlinkSync(tarPath)
+      if (output) {
+        fs.renameSync(tarPath, path.join(output, `${hash}.tar`))
+      } else {
+        fs.unlinkSync(tarPath)
+      }
       return hash
     })
   })
@@ -52,7 +57,7 @@ function hashFile (file) {
   })
 }
 
-function hash (object) {
+function hash (object, output) {
   // Check if object exists
   return new Promise(function (resolve, reject) {
     fs.stat(object, function (err, stats) {
@@ -65,7 +70,7 @@ function hash (object) {
     })
   }).then(function (stats) {
     if (!stats) return null
-    if (stats.isDirectory()) return hashDir(object)
+    if (stats.isDirectory()) return hashDir(object, output)
     if (stats.isFile()) return hashFile(object)
   })
 }

@@ -3,6 +3,7 @@
 var assert = require('assert')
 
 var hash = require('..')
+var fs = require('fs')
 
 var testFile = {
   path: './test/fixtures/my-file.txt',
@@ -34,4 +35,13 @@ describe('hash(path).then(..)', function () {
     }).catch(done)
   })
 })
-
+describe('hash(path, output).then(..)', function () {
+  it('it should save the tar to ${output}hash.tar', function (done) {
+    const outputDir = '/tmp/'
+    hash(testDir.path, outputDir).then(function (hash) {
+      assert.equal(hash, testDir.hash)
+      assert(fs.lstatSync(outputDir + hash + '.tar.gz').isFile())
+      done()
+    }).catch(done)
+  })
+})
