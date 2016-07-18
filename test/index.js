@@ -40,7 +40,7 @@ describe('hash(path, output).then(..)', function () {
     const outputDir = '/tmp/'
     hash(testDir.path, outputDir).then(function (hash) {
       assert.equal(hash, testDir.hash)
-      assert(fs.lstatSync(outputDir + hash + '.tar.gz').isFile())
+      assert(fs.lstatSync(outputDir + hash + '.tar').isFile())
       done()
     }).catch(done)
   })
