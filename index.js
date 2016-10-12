@@ -10,6 +10,7 @@ function tarCompress (dirPath) {
     var tmpFile = './.' + shortid.generate()
     var out = fs.createWriteStream(tmpFile)
     tar.pack(dirPath, {
+      sort: true,
       map: function (header) {
         if (process.env.DEBUG) console.log('HEADER before:', header)
         header.mtime = new Date(1240815600000)

@@ -6,7 +6,7 @@
   "dependencies": {
     "checksum": "^0.1.1",
     "shortid": "^2.2.6",
-    "tar-fs": "alantrrs/tar-fs#sort-files"
+    "tar-fs": "alantrrs/tar-fs#047f470aa21e1330d41726cf0415364ca8e247d2"
   },
   "devDependencies": {
     "istanbul": "^0.4.3",
