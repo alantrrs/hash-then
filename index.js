@@ -1,5 +1,5 @@
 
-var fs = require('fs')
+var fs = require('graceful-fs')
 var checksum = require('checksum')
 var tar = require('tar-fs')
 var shortid = require('shortid')
@@ -10,6 +10,7 @@ function tarCompress (dirPath) {
     var tmpFile = './.' + shortid.generate()
     var out = fs.createWriteStream(tmpFile)
     tar.pack(dirPath, {
+      fs: fs,
       map: function (header) {
         if (process.env.DEBUG) console.log('HEADER before:', header)
         header.mtime = new Date(1240815600000)

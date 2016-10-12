@@ -14,7 +14,7 @@ var testFile = {
 
 var testDir = {
   path: path.join('test', 'fixtures'),
-  hash: '7b5cba5f5c786dc2f070f3456ac1d34fcdccecb59d328d44e6ece543f302f16c'
+  hash: '5c5cd55c545df14893c2ba2e72dcd928c72847c85d08f8bfe327cdd833d73bf5'
 }
 
 describe('hash(path).then(..)', function () {
