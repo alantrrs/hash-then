@@ -1,5 +1,7 @@
 
-# hash-then [![CircleCI](https://circleci.com/gh/alantrrs/hash-then.svg?style=svg)](https://circleci.com/gh/alantrrs/hash-then)
+# hash-then [![CircleCI](https://circleci.com/gh/alantrrs/hash-then.svg?style=svg)](https://circleci.com/gh/alantrrs/hash-then) [![Build status](https://ci.appveyor.com/api/projects/status/barvpxcpaph2we25/branch/master?svg=true)](https://ci.appveyor.com/project/alantrrs/hash-then)
+
+
 
 _Hash files and directories_
 
